@@ -1,0 +1,23 @@
+
+
+pipeline:
+  testing:
+    image: golang:1.9.2
+    group: build
+    commands:
+      - make test
+      - make fmt-check
+
+  backend-1:
+    image: golang
+    group: build
+    commands:
+      - echo "sleep 10"
+      - sleep 10
+
+  backend-2:
+    image: golang
+    group: build
+    commands:
+      - echo "sleep 15"
+      - sleep 15
